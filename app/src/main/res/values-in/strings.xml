@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BAJP Submission 1</string>
+    <string name="catalogue_title">Judul Katalog</string>
+    <string name="tab_text_1">Film</string>
+    <string name="tab_text_2">Siaran Tv</string>
+    <string name="genre">Genre</string>
+    <string name="score">Skor</string>
+    <string name="image_poster_catalogue">Gambar Poster Katalog</string>
+    <string name="overview">Gambaran Ikhtisar</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="image_splash_screen">Gambar Splash Screen</string>
+    <string name="image_empty">Gambar Kosong</string>
+</resources>

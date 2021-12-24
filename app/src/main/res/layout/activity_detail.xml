@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp"
+        tools:context=".ui.DetailActivity">
+
+        <ImageView
+            android:id="@+id/img_poster_detail"
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            android:contentDescription="@string/image_poster_catalogue"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/poster_fairytail" />
+
+        <TextView
+            android:id="@+id/tv_title_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/catalogue_title"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_poster_detail"
+            app:layout_constraintTop_toTopOf="@+id/img_poster_detail" />
+
+        <TextView
+            android:id="@+id/tv_score_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/score"
+            android:textColor="@color/accent_dark"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_star"
+            app:drawableTint="@color/accent_dark"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_detail" />
+
+        <TextView
+            android:id="@+id/tv_genre_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/genre"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_score_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_score_detail" />
+
+        <TextView
+            android:id="@+id/tv_overview_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_overview"
+            android:padding="8dp"
+            android:text="@string/overview"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_poster_detail" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

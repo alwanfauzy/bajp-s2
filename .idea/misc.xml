@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/drawable/bg_genre.xml" value="0.2755208333333333" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/drawable/bg_overview.xml" value="0.15" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.15" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/drawable/ic_logo.xml" value="0.15" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/drawable/ic_star.xml" value="0.2755208333333333" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/drawable/splash_image.xml" value="0.2755208333333333" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/layout/activity_detail.xml" value="0.264" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/layout/activity_main.xml" value="0.16576086956521738" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/layout/activity_splash_screen.xml" value="0.182518115942029" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/layout/fragment_movie.xml" value="0.16576086956521738" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/layout/fragment_tv_show.xml" value="0.16576086956521738" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/layout/item_catalogue.xml" value="0.264" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/menu/main_menu.xml" value="0.259375" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/menu/menu_main.xml" value="0.259375" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15" />
+        <entry key="..\:/User/Documents/Data Kuliah (PENS-2110191020)/Organisasi dan lainnya/Dicoding/Belajar Android Jetpack Pro/submission-1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

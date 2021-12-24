@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BAJP Submission 1</string>
+    <string name="catalogue_title">Catalogue Title</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">Tv Show</string>
+    <string name="genre">Genre</string>
+    <string name="score">Score</string>
+    <string name="image_poster_catalogue">Image Poster Catalogue</string>
+    <string name="overview">Overview</string>
+    <string name="change_language">Change Language</string>
+    <string name="image_splash_screen">Image Splash Screen</string>
+    <string name="image_empty">Image Empty</string>
+</resources>
