@@ -19,6 +19,7 @@ import com.alwan.bajpsubmission1.data.model.Catalogue
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
@@ -81,20 +82,18 @@ class MainActivityTest {
     }
 
     @Test
-    fun emptyData() {
-        if (emptyData.isNullOrEmpty()) {
-            onView(withId(R.id.empty_movie)).perform(setVisibility(true))
-            onView(withId(R.id.rv_movie)).perform(setVisibility(false))
-            onView(withText("TV SHOW")).perform(click())
-            onView(withId(R.id.empty_tv_show)).perform(setVisibility(true))
-            onView(withId(R.id.rv_tv_show)).perform(setVisibility(false))
-        } else {
-            onView(withId(R.id.empty_movie)).perform(setVisibility(false))
-            onView(withId(R.id.rv_movie)).perform(setVisibility(true))
-            onView(withText("TV SHOW")).perform(click())
-            onView(withId(R.id.empty_tv_show)).perform(setVisibility(false))
-            onView(withId(R.id.rv_tv_show)).perform(setVisibility(true))
-        }
+    fun emptyDataMovie() {
+        assertEquals(emptyData.size, 0)
+        onView(withId(R.id.empty_movie)).perform(setVisibility(true))
+        onView(withId(R.id.rv_movie)).perform(setVisibility(false))
+    }
+
+    @Test
+    fun emptyDataTvShow() {
+        onView(withText("TV SHOW")).perform(click())
+        assertEquals(emptyData.size, 0)
+        onView(withId(R.id.empty_tv_show)).perform(setVisibility(true))
+        onView(withId(R.id.rv_tv_show)).perform(setVisibility(false))
     }
 
     private fun checkDetail(catalogue: Catalogue) {

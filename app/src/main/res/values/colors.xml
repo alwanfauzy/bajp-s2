@@ -4,7 +4,6 @@
     <color name="secondary">#9B0000</color>
     <color name="accent">#FFB74D</color>
     <color name="accent_dark">#BD7B19</color>
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
     <color name="bg_white">#ECECEC</color>
 </resources>
