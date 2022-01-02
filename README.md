@@ -1,2 +1,2 @@
-# Belajar Android Jetpack Pro Submission 1 (Dicoding)
-
+# bajp-s2
+Belajar Android Jetpack Pro Dicoding Submission 2
