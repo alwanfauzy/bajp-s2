@@ -1,4 +1,4 @@
-package com.alwan.bajpsubmission1.data.model
+package com.alwan.bajpsubmission2.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

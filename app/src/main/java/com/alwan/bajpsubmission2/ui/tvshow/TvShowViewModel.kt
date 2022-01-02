@@ -1,8 +1,8 @@
-package com.alwan.bajpsubmission1.ui.tvshow
+package com.alwan.bajpsubmission2.ui.tvshow
 
 import androidx.lifecycle.ViewModel
-import com.alwan.bajpsubmission1.data.DummyCatalogue
-import com.alwan.bajpsubmission1.data.model.Catalogue
+import com.alwan.bajpsubmission2.data.DummyCatalogue
+import com.alwan.bajpsubmission2.data.model.Catalogue
 
 class TvShowViewModel : ViewModel() {
     fun getTvShows() : ArrayList<Catalogue> = DummyCatalogue.getTvShow()

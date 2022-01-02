@@ -1,4 +1,4 @@
-package com.alwan.bajpsubmission1.ui
+package com.alwan.bajpsubmission2.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.alwan.bajpsubmission1.databinding.ActivitySplashScreenBinding
+import com.alwan.bajpsubmission2.databinding.ActivitySplashScreenBinding
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {

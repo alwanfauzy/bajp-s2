@@ -1,12 +1,12 @@
-package com.alwan.bajpsubmission1.ui
+package com.alwan.bajpsubmission2.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.alwan.bajpsubmission1.data.model.Catalogue
-import com.alwan.bajpsubmission1.databinding.ActivityDetailBinding
-import com.alwan.bajpsubmission1.ui.movie.MovieViewModel
-import com.alwan.bajpsubmission1.ui.tvshow.TvShowViewModel
+import com.alwan.bajpsubmission2.data.model.Catalogue
+import com.alwan.bajpsubmission2.databinding.ActivityDetailBinding
+import com.alwan.bajpsubmission2.ui.movie.MovieViewModel
+import com.alwan.bajpsubmission2.ui.tvshow.TvShowViewModel
 
 class DetailActivity : AppCompatActivity() {
     private var _binding: ActivityDetailBinding? = null

@@ -1,4 +1,4 @@
-package com.alwan.bajpsubmission1.utils
+package com.alwan.bajpsubmission2.utils
 
 import android.content.res.Resources
 import android.graphics.Rect

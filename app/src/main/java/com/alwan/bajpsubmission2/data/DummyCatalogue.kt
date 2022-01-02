@@ -1,7 +1,7 @@
-package com.alwan.bajpsubmission1.data
+package com.alwan.bajpsubmission2.data
 
-import com.alwan.bajpsubmission1.R
-import com.alwan.bajpsubmission1.data.model.Catalogue
+import com.alwan.bajpsubmission2.R
+import com.alwan.bajpsubmission2.data.model.Catalogue
 
 
 object DummyCatalogue {

@@ -1,7 +1,7 @@
-package com.alwan.bajpsubmission1.ui.movie
+package com.alwan.bajpsubmission2.ui.movie
 
-import com.alwan.bajpsubmission1.R
-import com.alwan.bajpsubmission1.data.model.Catalogue
+import com.alwan.bajpsubmission2.R
+import com.alwan.bajpsubmission2.data.model.Catalogue
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before

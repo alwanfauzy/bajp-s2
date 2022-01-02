@@ -1,4 +1,4 @@
-package com.alwan.bajpsubmission1.ui
+package com.alwan.bajpsubmission2.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import com.alwan.bajpsubmission1.R
-import com.alwan.bajpsubmission1.adapter.SectionsPagerAdapter
-import com.alwan.bajpsubmission1.databinding.ActivityMainBinding
+import com.alwan.bajpsubmission2.R
+import com.alwan.bajpsubmission2.adapter.SectionsPagerAdapter
+import com.alwan.bajpsubmission2.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.alwan.bajpsubmission1.ui
+package com.alwan.bajpsubmission2.ui
 
 import android.view.View
 import android.widget.ImageView
@@ -13,9 +13,9 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
-import com.alwan.bajpsubmission1.R
-import com.alwan.bajpsubmission1.data.DummyCatalogue
-import com.alwan.bajpsubmission1.data.model.Catalogue
+import com.alwan.bajpsubmission2.R
+import com.alwan.bajpsubmission2.data.DummyCatalogue
+import com.alwan.bajpsubmission2.data.model.Catalogue
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher

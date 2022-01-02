@@ -1,11 +1,11 @@
-package com.alwan.bajpsubmission1.adapter
+package com.alwan.bajpsubmission2.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alwan.bajpsubmission1.R
-import com.alwan.bajpsubmission1.data.model.Catalogue
-import com.alwan.bajpsubmission1.databinding.ItemCatalogueBinding
+import com.alwan.bajpsubmission2.R
+import com.alwan.bajpsubmission2.data.model.Catalogue
+import com.alwan.bajpsubmission2.databinding.ItemCatalogueBinding
 
 class CatalogueAdapter(private val callback: CatalogueCallback) :
     RecyclerView.Adapter<CatalogueAdapter.CatalogueViewHolder>() {

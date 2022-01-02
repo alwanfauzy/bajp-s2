@@ -1,10 +1,10 @@
-package com.alwan.bajpsubmission1.adapter
+package com.alwan.bajpsubmission2.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.alwan.bajpsubmission1.ui.movie.MovieFragment
-import com.alwan.bajpsubmission1.ui.tvshow.TvShowFragment
+import com.alwan.bajpsubmission2.ui.movie.MovieFragment
+import com.alwan.bajpsubmission2.ui.tvshow.TvShowFragment
 
 class SectionsPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 

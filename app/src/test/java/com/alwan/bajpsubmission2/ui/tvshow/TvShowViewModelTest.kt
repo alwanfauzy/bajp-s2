@@ -1,7 +1,7 @@
-package com.alwan.bajpsubmission1.ui.tvshow
+package com.alwan.bajpsubmission2.ui.tvshow
 
-import com.alwan.bajpsubmission1.R
-import com.alwan.bajpsubmission1.data.model.Catalogue
+import com.alwan.bajpsubmission2.R
+import com.alwan.bajpsubmission2.data.model.Catalogue
 import org.junit.Assert.*
 import org.junit.Before
 

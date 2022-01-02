@@ -1,4 +1,4 @@
-package com.alwan.bajpsubmission1.ui.movie
+package com.alwan.bajpsubmission2.ui.movie
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.alwan.bajpsubmission1.adapter.CatalogueAdapter
-import com.alwan.bajpsubmission1.data.model.Catalogue
-import com.alwan.bajpsubmission1.databinding.FragmentMovieBinding
-import com.alwan.bajpsubmission1.ui.DetailActivity
-import com.alwan.bajpsubmission1.utils.MarginItemDecoration
+import com.alwan.bajpsubmission2.adapter.CatalogueAdapter
+import com.alwan.bajpsubmission2.data.model.Catalogue
+import com.alwan.bajpsubmission2.databinding.FragmentMovieBinding
+import com.alwan.bajpsubmission2.ui.DetailActivity
+import com.alwan.bajpsubmission2.utils.MarginItemDecoration
 
 class MovieFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
     private var _binding: FragmentMovieBinding? = null
