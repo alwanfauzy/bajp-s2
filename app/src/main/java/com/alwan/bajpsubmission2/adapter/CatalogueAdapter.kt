@@ -1,24 +1,27 @@
 package com.alwan.bajpsubmission2.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alwan.bajpsubmission2.R
-import com.alwan.bajpsubmission2.data.model.Catalogue
+import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueEntity
 import com.alwan.bajpsubmission2.databinding.ItemCatalogueBinding
+import com.alwan.bajpsubmission2.utils.loadImage
 
 class CatalogueAdapter(private val callback: CatalogueCallback) :
     RecyclerView.Adapter<CatalogueAdapter.CatalogueViewHolder>() {
-    private val listCatalogue = ArrayList<Catalogue>()
+    private val listCatalogue = ArrayList<CatalogueEntity>()
 
-    fun setCatalogue(catalogues: ArrayList<Catalogue>?) {
-        if (catalogues == null) return
+    @SuppressLint("NotifyDataSetChanged")
+    fun setCatalogue(catalogueEntities: ArrayList<CatalogueEntity>?) {
         listCatalogue.clear()
-        listCatalogue.addAll(catalogues)
+        catalogueEntities?.let { listCatalogue.addAll(it) }
+        notifyDataSetChanged()
     }
 
     interface CatalogueCallback {
-        fun onCatalogueClick(catalogue: Catalogue)
+        fun onCatalogueClick(catalogueEntity: CatalogueEntity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogueViewHolder {
@@ -35,12 +38,11 @@ class CatalogueAdapter(private val callback: CatalogueCallback) :
 
     inner class CatalogueViewHolder(private val binding: ItemCatalogueBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(catalogue: Catalogue) {
+        fun bind(catalogue: CatalogueEntity) {
             with(binding) {
-                tvTitleCatalogue.text = catalogue.title
-                tvGenreCatalogue.text = catalogue.genre
-                tvScoreCatalogue.text = catalogue.score
-                catalogue.poster?.let { imgPosterCatalogue.setImageResource(it) }
+                tvTitleCatalogue.text = catalogue.name
+                tvScoreCatalogue.text = catalogue.voteAverage.toString()
+                catalogue.posterPath?.let { imgPosterCatalogue.loadImage(it) }
                     ?: imgPosterCatalogue.setImageResource(
                         R.drawable.catalogue_placeholder
                     )

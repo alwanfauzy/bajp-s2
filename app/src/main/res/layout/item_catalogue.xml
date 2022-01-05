@@ -17,26 +17,12 @@
             android:layout_margin="16dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-black"
-            android:maxLines="2"
+            android:maxLines="3"
             android:text="@string/catalogue_title"
-            android:textSize="24sp"
+            android:textSize="26sp"
             app:layout_constraintEnd_toStartOf="@+id/img_poster_catalogue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_genre_catalogue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-light"
-            android:maxLines="2"
-            android:text="@string/genre"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_title_catalogue"
-            app:layout_constraintStart_toStartOf="@+id/tv_title_catalogue"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_catalogue" />
 
         <TextView
             android:id="@+id/tv_score_catalogue"
@@ -52,7 +38,7 @@
             app:drawableStartCompat="@drawable/ic_star"
             app:drawableTint="@color/accent_dark"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tv_genre_catalogue" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_catalogue" />
 
         <ImageView
             android:id="@+id/img_poster_catalogue"

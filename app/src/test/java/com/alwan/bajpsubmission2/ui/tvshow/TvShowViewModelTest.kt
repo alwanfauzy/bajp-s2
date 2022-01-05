@@ -1,50 +1,54 @@
 package com.alwan.bajpsubmission2.ui.tvshow
 
-import com.alwan.bajpsubmission2.R
-import com.alwan.bajpsubmission2.data.model.Catalogue
-import org.junit.Assert.*
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import com.alwan.bajpsubmission2.data.CatalogueRepository
+import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueEntity
+import com.alwan.bajpsubmission2.utils.DummyCatalogue
+import com.nhaarman.mockitokotlin2.verify
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
-
+import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class TvShowViewModelTest {
 
-    private lateinit var viewModel: TvShowViewModel
-    private lateinit var tvShow: Catalogue
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @Mock
+    private lateinit var catalogueRepository: CatalogueRepository
+
+    @Mock
+    private lateinit var tvShowObserver: Observer<ArrayList<CatalogueEntity>>
+
+    private lateinit var tvShowViewModel: TvShowViewModel
 
     @Before
     fun setUp() {
-        viewModel = TvShowViewModel()
-        tvShow = Catalogue(
-            0,
-            "Dragon Ball",
-            "Long ago in the mountains, a fighting master known as Gohan discovered a " +
-                    "strange boy whom he named Goku. Gohan raised him and trained Goku in martial " +
-                    "arts until he died. The young and very strong boy was on his own, but easily" +
-                    " managed. Then one day, Goku met a teenage girl named Bulma, whose search for" +
-                    " the mystical Dragon Balls brought her to Gokus home. Together, they set off" +
-                    " to find all seven and to grant her wish.",
-            "Comedy, Sci-Fi & Fantasy, Animation, Action & Adventure",
-            "80%",
-            R.drawable.poster_dragon_ball
-        )
+        tvShowViewModel = TvShowViewModel(catalogueRepository)
     }
 
     @Test
     fun getTvShows() {
-        val tvShowEntities = viewModel.getTvShows()
-        assertNotNull(tvShowEntities)
-        assertEquals(10, tvShowEntities.size)
-    }
+        val dummyTvShow = DummyCatalogue.getTvShows()
+        val tvShows = MutableLiveData<ArrayList<CatalogueEntity>>()
+        tvShows.value = dummyTvShow
 
-    @Test
-    fun getDetailTvShow() {
-        val detailTvShow = viewModel.getDetailTvShow(0)
-        assertEquals(tvShow.id, detailTvShow.id)
-        assertEquals(tvShow.title, detailTvShow.title)
-        assertEquals(tvShow.overview, detailTvShow.overview)
-        assertEquals(tvShow.genre, detailTvShow.genre)
-        assertEquals(tvShow.score, detailTvShow.score)
-        assertEquals(tvShow.poster, detailTvShow.poster)
+        Mockito.`when`(catalogueRepository.getTvShows()).thenReturn(tvShows)
+        val tvShow = tvShowViewModel.getTvShows().value
+        verify(catalogueRepository).getTvShows()
+        assertNotNull(tvShow)
+        assertEquals(3, tvShow?.size)
+
+        tvShowViewModel.getTvShows().observeForever(tvShowObserver)
+        verify(tvShowObserver).onChanged(dummyTvShow)
     }
 }

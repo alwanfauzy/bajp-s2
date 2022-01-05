@@ -9,15 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alwan.bajpsubmission2.adapter.CatalogueAdapter
-import com.alwan.bajpsubmission2.data.model.Catalogue
+import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueEntity
 import com.alwan.bajpsubmission2.databinding.FragmentMovieBinding
-import com.alwan.bajpsubmission2.ui.DetailActivity
+import com.alwan.bajpsubmission2.ui.detail.DetailActivity
 import com.alwan.bajpsubmission2.utils.MarginItemDecoration
+import com.alwan.bajpsubmission2.utils.ViewModelFactory
 
 class MovieFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapterMovie : CatalogueAdapter
+    private lateinit var adapterMovie: CatalogueAdapter
     private lateinit var movieViewModel: MovieViewModel
 
     override fun onCreateView(
@@ -41,16 +42,21 @@ class MovieFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
     }
 
     private fun setupViewModel() {
-        movieViewModel = ViewModelProvider(this)[MovieViewModel::class.java]
+        val factory = ViewModelFactory.getInstance()
+        movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
     }
 
-    private fun setupAdapterMovie(){
+    private fun setupAdapterMovie() {
         adapterMovie = CatalogueAdapter(this)
-        adapterMovie.setCatalogue(movieViewModel.getMovies())
+        showLoading(true)
+        movieViewModel.getMovies().observe(viewLifecycleOwner, {
+            adapterMovie.setCatalogue(it)
+            showLoading(false)
+        })
     }
 
     private fun setupRvMovie() {
-        with(binding.rvMovie){
+        with(binding.rvMovie) {
             setHasFixedSize(true)
             addItemDecoration(MarginItemDecoration(16))
             layoutManager = LinearLayoutManager(requireContext())
@@ -58,9 +64,17 @@ class MovieFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
         }
     }
 
-    override fun onCatalogueClick(catalogue: Catalogue) {
+    private fun showLoading(state: Boolean) {
+        binding.progressBarMovie.visibility = if (state) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
+
+    override fun onCatalogueClick(catalogueEntity: CatalogueEntity) {
         val intent = Intent(requireActivity(), DetailActivity::class.java)
-        intent.putExtra(DetailActivity.EXTRA_ID, catalogue.id)
+        intent.putExtra(DetailActivity.EXTRA_ID, catalogueEntity.id)
         intent.putExtra(DetailActivity.EXTRA_TYPE, 0)
         startActivity(intent)
     }

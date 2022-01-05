@@ -1,12 +1,10 @@
 package com.alwan.bajpsubmission2.ui
 
 import android.view.View
-import android.widget.ImageView
-import androidx.annotation.DrawableRes
-import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
@@ -14,24 +12,31 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.alwan.bajpsubmission2.R
-import com.alwan.bajpsubmission2.data.DummyCatalogue
-import com.alwan.bajpsubmission2.data.model.Catalogue
-import org.hamcrest.Description
+import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueDetailEntity
+import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueEntity
+import com.alwan.bajpsubmission2.utils.DummyCatalogue
+import com.alwan.bajpsubmission2.utils.EspressoIdlingResource
 import org.hamcrest.Matcher
-import org.hamcrest.TypeSafeMatcher
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
 class MainActivityTest {
 
-    private val dummyMovie = DummyCatalogue.getMovie()
-    private val dummyTvShow = DummyCatalogue.getTvShow()
-    private val emptyData = emptyList<Catalogue>()
+    private val dummyDetailMovie = DummyCatalogue.getMovieDetails()[0]
+    private val dummyDetailTvShow = DummyCatalogue.getTvShowDetails()[0]
+    private val emptyData = emptyList<CatalogueEntity>()
 
     @Before
     fun setup() {
         ActivityScenario.launch(MainActivity::class.java)
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.getEspressoIdlingResource())
+    }
+
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.getEspressoIdlingResource())
     }
 
     @Test
@@ -44,7 +49,7 @@ class MainActivityTest {
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_movie)).perform(
             RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
-                dummyMovie.size - 1
+                19
             )
         )
     }
@@ -54,7 +59,7 @@ class MainActivityTest {
         onView(withText(R.string.tab_text_2)).perform(click())
         onView(withId(R.id.rv_tv_show)).apply {
             check(matches(isDisplayed()))
-            perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size - 1))
+            perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(19))
         }
     }
 
@@ -66,7 +71,7 @@ class MainActivityTest {
                 click()
             )
         )
-        checkDetail(dummyMovie[0])
+        checkDetail(dummyDetailMovie)
     }
 
     @Test
@@ -78,7 +83,7 @@ class MainActivityTest {
                 click()
             )
         )
-        checkDetail(dummyTvShow[0])
+        checkDetail(dummyDetailTvShow)
     }
 
     @Test
@@ -96,26 +101,22 @@ class MainActivityTest {
         onView(withId(R.id.rv_tv_show)).perform(setVisibility(false))
     }
 
-    private fun checkDetail(catalogue: Catalogue) {
+    private fun checkDetail(catalogueDetailEntity: CatalogueDetailEntity) {
         onView(withId(R.id.tv_title_detail)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(catalogue.title)))
+            check(matches(withText(catalogueDetailEntity.name)))
         }
         onView(withId(R.id.tv_score_detail)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(catalogue.score)))
+            check(matches(withText(catalogueDetailEntity.voteAverage.toString())))
         }
         onView(withId(R.id.tv_genre_detail)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(catalogue.genre)))
+            check(matches(withText(catalogueDetailEntity.genres)))
         }
         onView(withId(R.id.tv_overview_detail)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(catalogue.overview)))
-        }
-        onView(withId(R.id.img_poster_detail)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withDrawable(catalogue.poster!!)))
+            check(matches(withText(catalogueDetailEntity.overview)))
         }
     }
 
@@ -132,19 +133,6 @@ class MainActivityTest {
             override fun getDescription(): String {
                 return "Show / Hide View"
             }
-        }
-    }
-
-    private fun withDrawable(@DrawableRes id: Int) = object : TypeSafeMatcher<View>() {
-        override fun describeTo(description: Description) {
-            description.appendText("ImageView with drawable same as drawable with id $id")
-        }
-
-        override fun matchesSafely(view: View): Boolean {
-            val context = view.context
-            val expectedBitmap = context.getDrawable(id)!!.toBitmap()
-
-            return view is ImageView && view.drawable.toBitmap().sameAs(expectedBitmap)
         }
     }
 }

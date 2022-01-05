@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alwan.bajpsubmission2.adapter.CatalogueAdapter
-import com.alwan.bajpsubmission2.data.model.Catalogue
+import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueEntity
 import com.alwan.bajpsubmission2.databinding.FragmentTvShowBinding
-import com.alwan.bajpsubmission2.ui.DetailActivity
+import com.alwan.bajpsubmission2.ui.detail.DetailActivity
 import com.alwan.bajpsubmission2.utils.MarginItemDecoration
+import com.alwan.bajpsubmission2.utils.ViewModelFactory
 
 class TvShowFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
     private var _binding: FragmentTvShowBinding? = null
@@ -42,12 +43,17 @@ class TvShowFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
     }
 
     private fun setupViewModel() {
-        tvShowViewModel = ViewModelProvider(this)[TvShowViewModel::class.java]
+        val factory = ViewModelFactory.getInstance()
+        tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
     }
 
     private fun setupAdapterMovie() {
         adapterTvShow = CatalogueAdapter(this)
-        adapterTvShow.setCatalogue(tvShowViewModel.getTvShows())
+        showLoading(true)
+        tvShowViewModel.getTvShows().observe(viewLifecycleOwner, {
+            adapterTvShow.setCatalogue(it)
+            showLoading(false)
+        })
     }
 
     private fun setupRvMovie() {
@@ -59,9 +65,17 @@ class TvShowFragment : Fragment(), CatalogueAdapter.CatalogueCallback {
         }
     }
 
-    override fun onCatalogueClick(catalogue: Catalogue) {
+    private fun showLoading(state: Boolean) {
+        binding.progressBarTvShow.visibility = if (state) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
+
+    override fun onCatalogueClick(catalogueEntity: CatalogueEntity) {
         val intent = Intent(requireActivity(), DetailActivity::class.java)
-        intent.putExtra(DetailActivity.EXTRA_ID, catalogue.id)
+        intent.putExtra(DetailActivity.EXTRA_ID, catalogueEntity.id)
         intent.putExtra(DetailActivity.EXTRA_TYPE, 1)
         startActivity(intent)
     }
