@@ -14,15 +14,6 @@ import retrofit2.Response
 
 
 class RemoteDataSource {
-    companion object {
-        @Volatile
-        private var instance: RemoteDataSource? = null
-
-        fun getInstance(): RemoteDataSource =
-            instance ?: synchronized(this) {
-                instance ?: RemoteDataSource()
-            }
-    }
 
     fun getMovies(callback: LoadMoviesCallback) {
         EspressoIdlingResource.increment()
@@ -114,5 +105,15 @@ class RemoteDataSource {
 
     interface LoadDetailTvShowCallback {
         fun onDetailTvShowLoaded(tvShowDetail: TvShowDetailResponse?)
+    }
+
+    companion object {
+        @Volatile
+        private var instance: RemoteDataSource? = null
+
+        fun getInstance(): RemoteDataSource =
+            instance ?: synchronized(this) {
+                instance ?: RemoteDataSource()
+            }
     }
 }

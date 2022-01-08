@@ -17,7 +17,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val catalogueId = intent.getIntExtra(EXTRA_ID, 0)
         val catalogueType = intent.getIntExtra(EXTRA_TYPE, 0)

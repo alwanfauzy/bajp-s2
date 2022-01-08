@@ -10,14 +10,6 @@ import com.alwan.bajpsubmission2.utils.toGenreString
 
 class CatalogueRepository private constructor(private val remoteDataSource: RemoteDataSource) :
     CatalogueDataSource {
-    companion object {
-        @Volatile
-        private var instance: CatalogueRepository? = null
-        fun getInstance(remoteData: RemoteDataSource): CatalogueRepository =
-            instance ?: synchronized(this) {
-                instance ?: CatalogueRepository(remoteData)
-            }
-    }
 
     override fun getMovies(): LiveData<ArrayList<CatalogueEntity>> {
         val movieResult = MutableLiveData<ArrayList<CatalogueEntity>>()
@@ -123,5 +115,14 @@ class CatalogueRepository private constructor(private val remoteDataSource: Remo
             }
         }, tvShowId)
         return movieDetailResult
+    }
+
+    companion object {
+        @Volatile
+        private var instance: CatalogueRepository? = null
+        fun getInstance(remoteData: RemoteDataSource): CatalogueRepository =
+            instance ?: synchronized(this) {
+                instance ?: CatalogueRepository(remoteData)
+            }
     }
 }

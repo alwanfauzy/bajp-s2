@@ -1,5 +1,6 @@
 package com.alwan.bajpsubmission2.network
 
+import com.alwan.bajpsubmission2.BuildConfig.DEBUG
 import com.alwan.bajpsubmission2.utils.NetworkInfo.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,8 +8,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitConfig {
-    private val loggingInterceptor =
+    private val loggingInterceptor = if (DEBUG) {
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    } else {
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+    }
     private val client = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
         .build()

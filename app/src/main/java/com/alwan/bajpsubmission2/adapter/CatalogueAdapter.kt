@@ -1,6 +1,5 @@
 package com.alwan.bajpsubmission2.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +12,6 @@ class CatalogueAdapter(private val callback: CatalogueCallback) :
     RecyclerView.Adapter<CatalogueAdapter.CatalogueViewHolder>() {
     private val listCatalogue = ArrayList<CatalogueEntity>()
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setCatalogue(catalogueEntities: ArrayList<CatalogueEntity>?) {
         listCatalogue.clear()
         catalogueEntities?.let { listCatalogue.addAll(it) }
