@@ -47,7 +47,8 @@ class DetailActivity : AppCompatActivity() {
                                 tvGenreDetail.text = genres
                                 tvOverviewDetail.text = overview
                                 tvScoreDetail.text = voteAverage.toString()
-                                imgPosterDetail.loadImage(posterPath!!)
+                                imgPosterDetail.loadImage(posterPath)
+                                imgPosterDetail.tag = posterPath
                             }
                         }
                         showLoading(false)
@@ -63,7 +64,8 @@ class DetailActivity : AppCompatActivity() {
                                 tvGenreDetail.text = genres
                                 tvOverviewDetail.text = overview
                                 tvScoreDetail.text = voteAverage.toString()
-                                imgPosterDetail.loadImage(posterPath!!)
+                                imgPosterDetail.loadImage(posterPath)
+                                imgPosterDetail.tag = posterPath
                             }
                         }
                         showLoading(false)

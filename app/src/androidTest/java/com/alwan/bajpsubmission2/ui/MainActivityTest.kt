@@ -16,6 +16,7 @@ import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueDetailEntity
 import com.alwan.bajpsubmission2.data.source.local.entity.CatalogueEntity
 import com.alwan.bajpsubmission2.utils.DummyCatalogue
 import com.alwan.bajpsubmission2.utils.EspressoIdlingResource
+import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.Matcher
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -117,6 +118,10 @@ class MainActivityTest {
         onView(withId(R.id.tv_overview_detail)).apply {
             check(matches(isDisplayed()))
             check(matches(withText(catalogueDetailEntity.overview)))
+        }
+        onView(withId(R.id.img_poster_detail)).apply {
+            check(matches(isDisplayed()))
+            check(matches(withTagValue(equalTo(catalogueDetailEntity.posterPath))))
         }
     }
 
